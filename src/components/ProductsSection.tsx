@@ -44,6 +44,20 @@ const ProductsSection = () => {
       image: "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=400",
       features: ["Шифрованная связь", "Дальность 50км", "Водонепроницаемый"],
     },
+    {
+      id: 4,
+      name: "HYDRA AirPods Pro",
+      description:
+        "Модифицированные наушники с технологиями шумоподавления HYDRA",
+      price: "₽35,000",
+      image:
+        "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+      features: [
+        "Активное шумоподавление",
+        "Прозрачный режим",
+        "Беспроводная зарядка",
+      ],
+    },
   ];
 
   return (

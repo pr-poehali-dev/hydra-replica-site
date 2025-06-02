@@ -77,54 +77,104 @@ const ProductsSection = () => {
           {products.map((product) => (
             <Card
               key={product.id}
-              className="bg-slate-700 border-slate-600 hover:border-emerald-400 transition-all duration-300 hover:scale-105"
+              className={
+                product.id === 4
+                  ? "bg-gradient-to-br from-gray-50 to-gray-100 border-gray-200 hover:border-gray-300 transition-all duration-300 hover:scale-105 overflow-hidden rounded-3xl shadow-lg"
+                  : "bg-slate-700 border-slate-600 hover:border-emerald-400 transition-all duration-300 hover:scale-105"
+              }
             >
-              <div className="relative overflow-hidden rounded-t-lg">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 right-4 bg-emerald-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
-                  Премиум
-                </div>
-              </div>
+              {product.id === 4 ? (
+                <>
+                  <div className="relative p-8 bg-gradient-to-br from-white via-gray-50 to-gray-100">
+                    <img
+                      src="https://cdn.poehali.dev/files/da2f7c02-cccd-45a8-a950-5b0142b51dae.jpeg"
+                      alt={product.name}
+                      className="w-full h-48 object-contain"
+                    />
+                    <div className="absolute top-4 right-4 bg-green-500 w-3 h-3 rounded-full shadow-lg animate-pulse"></div>
+                  </div>
 
-              <CardHeader>
-                <CardTitle className="text-emerald-400 text-xl">
-                  {product.name}
-                </CardTitle>
-                <CardDescription className="text-slate-300">
-                  {product.description}
-                </CardDescription>
-              </CardHeader>
+                  <CardHeader className="bg-white">
+                    <CardTitle className="text-gray-900 text-xl font-medium">
+                      {product.name}
+                    </CardTitle>
+                    <CardDescription className="text-gray-600 text-sm leading-relaxed">
+                      {product.description}
+                    </CardDescription>
+                  </CardHeader>
 
-              <CardContent className="space-y-4">
-                <div className="space-y-2">
-                  {product.features.map((feature, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center text-sm text-slate-400"
-                    >
-                      <Icon
-                        name="Check"
-                        className="h-4 w-4 text-emerald-400 mr-2"
-                      />
-                      {feature}
+                  <CardContent className="bg-white pt-0">
+                    <div className="space-y-3 mb-6">
+                      {product.features.map((feature, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                          <span className="text-gray-700 text-sm">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
 
-                <div className="flex items-center justify-between pt-4">
-                  <span className="text-2xl font-bold text-emerald-400">
-                    {product.price}
-                  </span>
-                  <Button className="bg-emerald-500 hover:bg-emerald-600 text-black">
-                    <Icon name="ShoppingCart" className="h-4 w-4 mr-2" />
-                    Купить
-                  </Button>
-                </div>
-              </CardContent>
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl font-semibold text-gray-900">
+                        {product.price}
+                      </span>
+                      <Button className="bg-gray-900 hover:bg-gray-800 text-white rounded-full px-6 py-2 text-sm font-medium">
+                        Заказать
+                      </Button>
+                    </div>
+                  </CardContent>
+                </>
+              ) : (
+                <>
+                  <div className="relative overflow-hidden rounded-t-lg">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-48 object-cover"
+                    />
+                    <div className="absolute top-4 right-4 bg-emerald-500 text-black px-3 py-1 rounded-full text-sm font-semibold">
+                      Премиум
+                    </div>
+                  </div>
+
+                  <CardHeader>
+                    <CardTitle className="text-emerald-400 text-xl">
+                      {product.name}
+                    </CardTitle>
+                    <CardDescription className="text-slate-300">
+                      {product.description}
+                    </CardDescription>
+                  </CardHeader>
+
+                  <CardContent>
+                    <div className="space-y-2 mb-6">
+                      {product.features.map((feature, index) => (
+                        <div key={index} className="flex items-center gap-2">
+                          <Icon
+                            name="Check"
+                            className="text-emerald-400"
+                            size={16}
+                          />
+                          <span className="text-slate-300 text-sm">
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-2xl font-bold text-emerald-400">
+                        {product.price}
+                      </span>
+                      <Button className="bg-emerald-500 hover:bg-emerald-600 text-black">
+                        <Icon name="ShoppingCart" className="mr-2" size={16} />
+                        Заказать
+                      </Button>
+                    </div>
+                  </CardContent>
+                </>
+              )}
             </Card>
           ))}
         </div>

@@ -46,7 +46,7 @@ const ProductsSection = () => {
     },
     {
       id: 4,
-      name: "HYDRA AirPods Pro",
+      name: "AirPods Pro",
       description:
         "Беспроводные наушники с адаптивным шумоподавлением и усиленной батареей на 48 часов",
       price: "₽1,000",

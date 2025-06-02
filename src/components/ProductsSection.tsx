@@ -49,7 +49,7 @@ const ProductsSection = () => {
       name: "HYDRA AirPods Pro",
       description:
         "Модифицированные наушники с технологиями шумоподавления HYDRA",
-      price: "₽29,999",
+      price: "₽1,000",
       image:
         "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
       features: [
